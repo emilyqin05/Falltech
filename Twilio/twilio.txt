@@ -1,0 +1,55 @@
+from twilio.rest import Client
+import requests
+
+def decimal_to_dms(lat, lon):
+    def to_dms(decimal):
+        degrees = int(decimal)
+        minutes = int(abs(decimal - degrees) * 60)
+        seconds = (abs(decimal - degrees) * 60 - minutes) * 60
+        return degrees, minutes, seconds
+
+    lat_deg, lat_min, lat_sec = to_dms(abs(lat))
+    lon_deg, lon_min, lon_sec = to_dms(abs(lon))
+    lat_dir = "N" if lat >= 0 else "S"
+    lon_dir = "E" if lon >= 0 else "W"
+
+    return f"{lat_deg}°{lat_min}'{lat_sec:.1f}\"{lat_dir}", f"{lon_deg}°{lon_min}'{lon_sec:.1f}\"{lon_dir}"
+
+def get_google_maps_dms_link(lat, lon):
+    lat_dms, lon_dms = decimal_to_dms(lat, lon)
+    return f"https://www.google.ca/maps/place/{lat_dms}+{lon_dms}"
+
+# Function to send an SMS using Twilio
+def send_sms(message, to_phone_number):
+    try:
+        client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+        sms = client.messages.create(
+            body=message,
+            from_=TWILIO_PHONE_NUMBER,
+            to=to_phone_number,
+        )
+        print(f"Message sent! SID: {sms.sid}")
+    except Exception as e:
+        print(f"Failed to send SMS: {e}")
+
+# Simulate GPS data retrieval
+def get_gps_coordinates():
+    # Replace with actual GPS module data retrieval logic
+    # For now, we simulate with hardcoded coordinates
+    return (49.26250, -123.24503)  # Life Sciences Building, UBC coordinates
+
+# Main logic
+if __name__ == "__main__":
+    print("Fetching GPS coordinates...")
+    latitude, longitude = get_gps_coordinates()
+    print(f"Latitude: {latitude}, Longitude: {longitude}")
+    
+    # Generate Google Maps link
+    google_maps_link = get_google_maps_dms_link(latitude, longitude)
+    print(f"Google Maps Link: {google_maps_link}")
+    
+    # Compose the SMS message
+    sms_message = f"Your Current Location:\n{google_maps_link}"
+    
+    # Send SMS
+    send_sms(sms_message, RECIPIENT_PHONE_NUMBER)
