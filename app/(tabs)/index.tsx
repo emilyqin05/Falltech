@@ -5,7 +5,7 @@ export default function LoginScreen() {
     <View style={styles.container}>
       {/* Display an image */}
       <Image
-        source={{ uri: 'https://via.placeholder.com/150' }} // Replace with your image URL or local image
+        source={require('@/assets/images/Loading Graphic.png')}
         style={styles.image}
         resizeMode="contain"
       />

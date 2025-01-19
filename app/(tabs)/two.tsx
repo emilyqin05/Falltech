@@ -4,14 +4,14 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       {/* Logo */}
-      <Text style={styles.logo}>LOGO</Text>
+      <Text style={styles.logo}>Falltech</Text>
 
       {/* Health Profile Card */}
       <View style={styles.profileCard}>
         <View style={styles.profileHeader}>
           <Image
             style={styles.profileImage}
-            source={{ uri: 'https://via.placeholder.com/80' }} // Replace with your image URI
+            source={{ uri: 'https://t3.ftcdn.net/jpg/00/56/14/04/360_F_56140454_q4nbUmTCcC1ovIJrOL1SxJuaYXwvSz68.jpg' }} // Replace with your image URI
           />
           <Text style={styles.profileName}>Full Name</Text>
           <Text style={styles.menuIcon}>⋮</Text>
@@ -29,21 +29,21 @@ export default function TabTwoScreen() {
         <View style={styles.circle}>
           <Image
             style={styles.circleImage}
-            source={{ uri: 'https://via.placeholder.com/60' }} // Replace with your image URI
+            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvjXVcm_oNNg_Xsajfk8PEsGUat7_4I_Ui3Q&s' }} // Replace with your image URI
           />
           <Text style={styles.circleName}>Name 1</Text>
         </View>
         <View style={styles.circle}>
           <Image
             style={styles.circleImage}
-            source={{ uri: 'https://via.placeholder.com/60' }} // Replace with your image URI
+            source={{ uri: 'https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/bbe02990-7d16-4c23-9a65-c19d1aefc452/6985d80b-bdfc-4093-b463-ba69dde62f6b.png' }} // Replace with your image URI
           />
           <Text style={styles.circleName}>Name 2</Text>
         </View>
         <View style={styles.circle}>
           <Image
             style={styles.circleImage}
-            source={{ uri: 'https://via.placeholder.com/60' }} // Replace with your image URI
+            source={{ uri: 'https://media.istockphoto.com/id/1450340623/photo/portrait-of-successful-mature-boss-senior-businessman-in-glasses-asian-looking-at-camera-and.jpg?s=612x612&w=0&k=20&c=f0EqWiUuID5VB_NxBUEDn92W2HLENR15CFFPzr-I4XE=' }} // Replace with your image URI
           />
           <Text style={styles.circleName}>Name 3</Text>
         </View>
